@@ -1,0 +1,38 @@
+1. Object serialization is when you take a file and convert it into a stream of bytes for later processing.
+
+2. outputFile = open('mydata.dat', 'wb')
+which is writing in binary mode.
+
+3. inputFile = open('mydata.dat','rb')
+which is read binary mode
+
+4. you import the pickle module to pickel objects
+
+5. you use pickle.dump(object, filename)
+
+6. you use pickle.load(inputFile)
+
+
+
+You can use the in operator to determine whether a key exists inside of a dictionary.
+You can use the del dictionaryName[key] to delete an element out of a dictionary.
+the len() function returns the number of elements in a dictionary
+the {} is used to make an empty dictionary
+popitem() method returns a randomly selected key-value pair from a dictionary
+the pop() method returns the value associated with a specific key and removes that key value pair from the dictionary 
+the get() method returns th evalue associated with at specific key and if the key is not found it returns a default value.
+you can use the in operator to determin whether a key exists in a dictionary
+you use the remove method or the del statement to delete an element from a dictionaryName
+the items() returns all of a dictionary's keys and their associated values as a sequence of tuples
+the len function returns the number of elements in a set 
+
+you can add  one elementto a set with the add method
+you can add a group of elements to a set with the update method
+the set method that removes an element but does not raise an exception if the element is not found is the discard method, the remove method returns a keyerror
+
+the or operator can be used to find the union of two sets
+the difference operator for difference of A - B 
+the & for the intersection of two sets
+the ^ for the symmetric difference between two sets. 
+
+
