@@ -4,10 +4,11 @@ def main():
 
 
 def printLines(n):
-    print("*" * (n - (n - 1)))
     if n == 1:
-        return print("*")
-    return printLines(n - 1)
+        print("*")
+    else:
+        printLines(n - 1)
+        print("*" * n)
 
 
 if __name__ == "__main__":
