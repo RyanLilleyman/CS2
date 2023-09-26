@@ -14,7 +14,7 @@ class Student:
         self.__credits = credits
         self.__course_list: List[Tuple] = []
 
-    def getName(self):
+    def get_name(self):
         return self.__name
 
     def getCourseList(self):
