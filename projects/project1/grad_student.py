@@ -8,10 +8,13 @@ from typing import List
 
 
 class GradStudent(Student):
-    def __init__(self, name: str, credit: int):
-        super().__init__(name, credit)
+    def __init__(self, name: str, id: int):
+        super().__init__(name, id)
         self.__publicationList: List[str] = []
         self.__numberofPubs: int = 0
+
+    def get_publicationAmount(self):
+        return self.__numberofPubs
 
     def publish_paper(self, paper: str):
         self.__publicationList.append(paper)

@@ -1,6 +1,6 @@
 # Project NO. 1
 # Author: Ryan Lilleyman
-# Description: This file contains the main function
+# Description: This file contains the main function.
 
 from graduation_auditor import GraduationAuditor
 from undergrad_student import UndergradStudent
