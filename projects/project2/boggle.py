@@ -1,3 +1,8 @@
+# Project No: 2
+# Author: Ryan Lilleyman
+# Description: This is the main class that governs the boggle game logic.
+
+
 import random
 import string
 
@@ -10,12 +15,6 @@ class BoggleBoard:
             [" ", " ", " ", " "],
             [" ", " ", " ", " "],
             [" ", " ", " ", " "],
-        ]
-        self.__board_check = [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
         ]
         self.__seed = None
         self.__current_guess = ""
@@ -41,9 +40,6 @@ class BoggleBoard:
     def get_board(self):
         return self.__board
 
-    def get_board_check(self):
-        return self.__board_check
-
     def get_seed(self):
         return self.__seed
 
@@ -58,13 +54,6 @@ class BoggleBoard:
                 value = random.choice(string.ascii_uppercase)
                 self.__board[i][j] = value
         print(self)
-
-    # Initialize tracking board with 0
-    def initialize_board_check(self):
-        for i, row in enumerate(self.__board_check):
-            for j, value in enumerate(row):
-                value = 0
-                self.__board_check[i][j] = value
 
     # Set the seed to a specific value
     def set_seed(self):
@@ -90,8 +79,29 @@ class BoggleBoard:
     def clean_guess(self):
         return self.__current_guess.upper()
 
-    def check_guess_validity(self):
-        print("Nothing here yet.")
+    def check_neighbors(self, i, j, c):
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        for r, c in directions:
+            newI, newJ = i + r, j + c
+            if 0 < newI < 4 and 0 < newJ < 4:
+                if self.__board[newI][newJ] == c:
+                    return True
+        return False
+
+    def check_guess_validity(self, s, kdx=0):
+        if kdx == len(s):
+            return True
+        print(s[kdx])
+        curr = s[kdx]
+        print(curr)
+        for i in range(len(self.get_board())):
+            for j in range(4):
+                if self.__board[i][j] == curr:
+                    print(True)
+                    if self.check_neighbors(i, j, curr):
+                        if self.check_guess_validity(s, kdx + 1):
+                            return True
+        return False
 
     def not_a_pal(self):
         print(f"The word {self.__current_guess} is not a palindrome.")
