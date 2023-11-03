@@ -1,0 +1,817 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{amsthm}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 95 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Home Work #8
+\end_layout
+
+\begin_layout Author
+Ryan Lilleyman
+\end_layout
+
+\begin_layout Section*
+10.1.1 
+\end_layout
+
+\begin_layout Standard
+In a particular state, the license plates have 7 characters.
+ Each character can be a capital letter or a digit except for 0.
+ (The set of possible digits is {1; 2; 3; 4; 5; 6; 7; 8; 9}.) A person witnesses
+ a crime and remembers some information about the license plate of the getaway
+ car.
+ The authorities would like to figure out how many license plates need to
+ be checked in each case.
+ For each constraint given below, indicate the number of license plates
+ that satisfy that constraint.
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+ No Constraints
+\end_layout
+
+\begin_layout Standard
+There are 26 capital letters plus 9 digits, which give a total of 35 possible
+ elements for our domain of choices.
+ 
+\begin_inset Formula $35^{7}=64339296875$
+\end_inset
+
+ possible combinations to create a license plate.
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+ 
+\end_layout
+
+\begin_layout Standard
+If the license plate starts with a digit then we only have 9 possible elements
+ for the first character.
+ Or 
+\begin_inset Formula $9*35^{6}=1838265625*9=16544390625.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c.
+ 
+\end_layout
+
+\begin_layout Standard
+If the license plate starts with three letters, then 
+\begin_inset Formula $26^{3}*35^{4}=26374985000.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part d.
+\end_layout
+
+\begin_layout Standard
+If the first three are letters and the last four are numbers, then 
+\begin_inset Formula $26^{3}*9^{4}=115316136.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.1.2
+\end_layout
+
+\begin_layout Standard
+Consider the following definitions for sets of characters:
+\end_layout
+
+\begin_layout Standard
+Digits = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 } Letters = { a, b, c, d, e, f,
+ g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z } Special characters
+ = { *, &, $, # } Compute the number of passwords that satisfy the given
+ constraints.
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+ 
+\end_layout
+
+\begin_layout Standard
+Strings of length 6.
+ Characters can be special characters, digits, or letters.
+\end_layout
+
+\begin_layout Standard
+Then, 
+\begin_inset Formula 
+\[
+40^{6}=4096000000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\end_layout
+
+\begin_layout Standard
+Strings of length 7, 8, or 9.
+ Characters can be special characters, digits, or letters.
+\end_layout
+
+\begin_layout Standard
+Then,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+40^{7}+40^{8}+40^{9}=268861440000000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c.
+\end_layout
+
+\begin_layout Standard
+Strings of length 7, 8, or 9.
+ Characters can be special characters, digits, or letters.
+ The first character cannot be a letter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+14*40^{6}+14*40^{7}+14*40^{8}=94101504000000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.3.1
+\end_layout
+
+\begin_layout Standard
+A Chinese restaurant offers 10 different lunch specials.
+ Each weekday for one week, Fiona goes to the restaurant and selects a lunch
+ special.
+ How many different ways are there for her to select her lunches for the
+ week? Note that which lunch she orders on which day matters, so the following
+ two selections are considered different.
+\end_layout
+
+\begin_layout Standard
+One possible selection:
+\end_layout
+
+\begin_layout Standard
+Mon: Kung pao chicken Tues: Beef with broccoli Wed: Kung pao chicken Thurs:
+ Moo shu pork Fri: Beef with broccoli A different selection:
+\end_layout
+
+\begin_layout Standard
+Mon: Beef with broccoli Tues: Kung pao chicken Wed: Kung pao chicken Thurs:
+ Moo shu pork Fri: Beef with broccoli
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+10*10*10*10*10=100,000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\begin_inset Formula 
+\[
+10*10*10*10*3=3,000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.3.1
+\end_layout
+
+\begin_layout Standard
+Consider the following definitions for sets of characters:
+\end_layout
+
+\begin_layout Standard
+Digits = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 } Letters = { a, b, c, d, e, f,
+ g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z } Special characters
+ = { *, &, $, # } Compute the number of passwords that satisfy the given
+ constraints.
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+ *
+\end_layout
+
+\begin_layout Standard
+(a) Strings of length 6.
+ Characters can be special characters, digits, or letters, with no repeated
+ characters.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+40*39*38*37*36*35=1,907,376,000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\end_layout
+
+\begin_layout Standard
+(b) Strings of length 6.
+ Characters can be special characters, digits, or letters, with no repeated
+ characters.
+ The first character can not be a special character.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+36*40*39*38*37*36=63,669,504,000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.3.2
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+(a) How many strings are there over the set {a, b, c} that have length 10
+ in which no two consecutive characters are the same? For example, the string
+ "abcbcbabcb" would count and the strings "abbbcbabcb" and "aacbcbabcb"
+ would not count.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+3*2^{9}=1536.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.3.3
+\end_layout
+
+\begin_layout Standard
+License plate numbers in a certain state consists of seven characters.
+ The first character is a digit (0 through 9).
+ The next four characters are capital letters (A through Z) and the last
+ two characters are digits.
+ Therefore, a license plate number in this state can be any string of the
+ form:
+\end_layout
+
+\begin_layout Standard
+Digit-Letter-Letter-Letter-Letter-Digit-Digit
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+(a) How many different license plate numbers are possible?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+10*26*26*26*26*10*10=456976000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\end_layout
+
+\begin_layout Standard
+(b) How many license plate numbers are possible if no digit appears more
+ than once?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+10*26*26*26*26*9*8=329022720.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c.
+\end_layout
+
+\begin_layout Standard
+How many license plate numbers are possible if no digit or letter appears
+ more than once?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+10*26*25*24*23*9*8=258336000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.3.4
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+(a) A manager must select three coders from her group to write three different
+ software projects.
+ There are 7 junior and 3 senior coders in her group.
+ The first project can be written by any of the coders.
+ The second project must be written by a senior person and the third project
+ must be written by a junior person.
+ How many ways are there for her to assign the three coders to the projects
+ if no person can be assigned to more than one project?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(3*2*7)+(7*2*6)=168.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.4.2
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+At a certain university in the U.S., all phone numbers are 7-digits long and
+ start with either 824 or 825.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2*10*10*10*10=20,000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\end_layout
+
+\begin_layout Standard
+(b) How many different phone numbers are there in which the last four digits
+ are all different?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2*10*9*8*7=11,200.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.4.3
+\end_layout
+
+\begin_layout Standard
+Ten members of a club are lining up in a row for a photograph.
+ The club has one president, one VP, one secretary, and one treasurer.
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+(a) How many ways are there to line up the ten people?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+10*10*10*10=10000.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b.
+\end_layout
+
+\begin_layout Standard
+How many ways are there to line up the ten people if the VP must be beside
+ the president in the photo?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2*9!=725,760
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c.
+\end_layout
+
+\begin_layout Standard
+(c) How many ways are there to line up the ten people if the president must
+ be next to the secretary and the VP must be next to the treasurer?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+4*8!=161,280
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.4.4
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+\end_layout
+
+\begin_layout Standard
+(a) A girl scout troop with 10 girl scouts and 2 leaders goes on a hike.
+ When the path narrows, they must walk in single file with a leader at the
+ front and a leader at the back.
+ How many ways are there for the entire troop (including the scouts and
+ the leaders) to line up?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2*10!=7,257,600
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+10.5.1
+\end_layout
+
+\begin_layout Standard
+Consider a function f that maps 5-permutations from the set S = {1, …, 20}
+ to 5-subsets from S.
+ The function takes a 5-permutation and creates an unordered set whose elements
+ are the five numbers included in the permutation.
+\end_layout
+
+\begin_layout Subsection*
+Part a.
+ (a) What is the value of f on input (12, 1, 3, 15, 9)?
+\end_layout
+
+\begin_layout Standard
+Considering that we are given the 5 permutation, it would just automatically
+ map onto the set {12,1,3,15,9}.
+\end_layout
+
+\begin_layout Subsection*
+Part (b) Is (12, 3, 12, 4, 19) a 5-permutation? Why or why not?
+\end_layout
+
+\begin_layout Standard
+No.
+ A permutation must have unique elements (no repetitions) from the domain
+ of the parent set in order to be considered a permutation.
+\end_layout
+
+\begin_layout Subsection*
+Part (c) How many permutations are mapped onto the subset {12, 3, 13, 4,
+ 19}?
+\end_layout
+
+\begin_layout Standard
+Given that we have 20 elements possible from the set to choose from.
+ We are essentially asked how many different unordered subsets we can create
+ from this one set.
+ 
+\end_layout
+
+\begin_layout Standard
+Easily enough, we can just use the generalized product rule.
+ So 5!.
+ 
+\end_layout
+
+\begin_layout Section*
+10.5.2
+\end_layout
+
+\begin_layout Standard
+Define the set S = {a, b, c, d, e, f, g}.
+\end_layout
+
+\begin_layout Subsection*
+Part (a) Give an example of a 4-permutation from the set S.
+\end_layout
+
+\begin_layout Standard
+(a,b,c,d) We write permutations as ordered tuples.
+ If we wrote (b,c,a,d), this is an entirely different permutation because
+ the order is different.
+\end_layout
+
+\begin_layout Subsection*
+Part (b) Give an example of a 4-subset from the set S.
+\end_layout
+
+\begin_layout Standard
+Whereas with {a,b,c,d} = {b,c,a,d} because the order doesn't matter.
+\end_layout
+
+\begin_layout Subsection*
+Part (c) How many subsets of S have exactly four elements?
+\end_layout
+
+\begin_layout Standard
+C(n,r) = C(7,4) = 7!/(4!(3!))
+\end_layout
+
+\begin_layout Subsection*
+Part (d) How many subsets of S have either three or four elements?
+\end_layout
+
+\begin_layout Standard
+C(7,4) + C(7,3) = 7!/(4!(3!)) + 7!/(3!(4!)) 
+\end_layout
+
+\begin_layout Section*
+10.5.3
+\end_layout
+
+\begin_layout Standard
+How many 10-bit strings are there subject to each of the following restrictions?
+\end_layout
+
+\begin_layout Subsection*
+Part (a) No restrictions.
+\end_layout
+
+\begin_layout Standard
+2^10
+\end_layout
+
+\begin_layout Subsection*
+Part (b) The string starts with 001.
+\end_layout
+
+\begin_layout Standard
+2^7.
+\end_layout
+
+\begin_layout Subsection*
+Part (c) The string starts with 001 or 10.
+\end_layout
+
+\begin_layout Standard
+(2^7) + (2^8).
+\end_layout
+
+\begin_layout Subsection*
+Part (d) The first two bits are the same as the last two bits.
+\end_layout
+
+\begin_layout Standard
+2* (2^6).
+\end_layout
+
+\begin_layout Subsection*
+Part (e) The string has exactly six 0's.
+\end_layout
+
+\begin_layout Standard
+C(10,6) = 10!/(6!(4!)).
+\end_layout
+
+\begin_layout Subsection*
+Part (f) The string has exactly six 0's and the first bit is 1.
+\end_layout
+
+\begin_layout Standard
+C(9,6) = 9!(6!(3!)).
+\end_layout
+
+\begin_layout Subsection*
+Part (g) There is exactly one 1 in the first half and exactly three 1's
+ in the second half.
+\end_layout
+
+\begin_layout Standard
+C(5,1) + C(5,3) = (5!/(4!)) * (5!/(3!(2!))).
+\end_layout
+
+\begin_layout Section*
+10.5.8
+\end_layout
+
+\begin_layout Standard
+This question refers to a standard deck of playing cards.
+ If you are unfamiliar with playing cards, there is an explanation in "Probabili
+ty of an event" section under the heading "Standard playing cards." A five-card
+ hand is just a subset of 5 cards from a deck of 52 cards.
+\end_layout
+
+\begin_layout Subsection*
+Part (a) How many different five-card hands are there from a standard deck
+ of 52 playing cards?
+\end_layout
+
+\begin_layout Standard
+C(52,5) = 52!(5!(47!))
+\end_layout
+
+\begin_layout Subsection*
+Part (b) How many five-card hands have exactly two hearts?
+\end_layout
+
+\begin_layout Standard
+What ever (13 choose 2) * (39 choose 3) is.....
+\end_layout
+
+\end_body
+\end_document
