@@ -152,7 +152,7 @@ class Car:
             + self.car_type
         )
 
-    def display(self):
+    def print_info(self):
         """
         Display the object by printing it.
         """

@@ -96,7 +96,7 @@ class DomesticCar(Car):
             + self.state
         )
 
-    def display(self):
+    def print_info(self):
         """
         Display the object by printing it to the console.
 
