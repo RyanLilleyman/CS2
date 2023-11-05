@@ -22,13 +22,13 @@ class ImportCar(Car):
 
     def __init__(
         self,
-        country: str,
-        tax: float,
-        price: float,
         brand: str,
         model: str,
         year: int,
+        price: float,
         car_type: str,
+        country: str,
+        tax: float,
     ):
         """
         Initializes a new instance of the class.
@@ -93,6 +93,12 @@ class ImportCar(Car):
         """
         self.__tax = value
 
+    def raise_tax_by_five(self):
+        """
+        Raises the tax rate by 5%.
+        """
+        self.tax += 5
+
     def __str__(self) -> str:
         """
         Returns a string representation of the Car object.
@@ -100,27 +106,23 @@ class ImportCar(Car):
         :return: A string representation of the Car object.
         :rtype: str
         """
+        formatted_price = "${:,.2f}".format(self.price)
+        formatted_tax = "{:,.0f}".format(self.tax)
         return (
-            "Brand: "
-            + self.brand
-            + "\n"
-            + "Model: "
+            self.brand
+            + " "
             + self.model
-            + "\n"
-            + "Year: "
+            + " "
             + str(self.year)
-            + "\n"
-            + "Price: "
-            + str(self.price)
-            + "\n"
-            + "Car type: "
+            + " "
+            + formatted_price
+            + " "
             + self.car_type
-            + "\n"
-            + "Country: "
+            + " "
             + self.country
-            + "\n"
-            + "Tax: "
-            + self.tax
+            + " "
+            + formatted_tax
+            + "%"
         )
 
     def print_info(self):

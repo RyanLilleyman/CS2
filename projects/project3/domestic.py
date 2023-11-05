@@ -21,12 +21,12 @@ class DomesticCar(Car):
 
     def __init__(
         self,
-        state: str,
-        price: float,
         brand: str,
         model: str,
         year: int,
+        price: float,
         car_type: str,
+        state: str,
     ):
         """
         Initializes a new instance of the class.
@@ -69,6 +69,20 @@ class DomesticCar(Car):
         """
         self.__state = value
 
+    def raise_price_by_fifteen_percent(self):
+        """
+        Raises the price of the object by fifteen percent.
+
+        This method multiplies the current price of the object by 1.15, effectively increasing it by fifteen percent.
+
+        Parameters:
+        - self: The object on which the method is called.
+
+        Returns:
+        - None: This method does not return any value.
+        """
+        self.price *= 1.15
+
     def __str__(self) -> str:
         """
         Returns a string representation of the Car object.
@@ -76,23 +90,18 @@ class DomesticCar(Car):
         :return: A string representation of the Car object.
         :rtype: str
         """
+        formatted_price = "${:,.2f}".format(self.price)
         return (
-            "Brand: "
-            + self.brand
-            + "\n"
-            + "Model: "
+            self.brand
+            + " "
             + self.model
-            + "\n"
-            + "Year: "
+            + " "
             + str(self.year)
-            + "\n"
-            + "Price: "
-            + str(self.price)
-            + "\n"
-            + "Car type: "
+            + " "
+            + formatted_price
+            + " "
             + self.car_type
-            + "\n"
-            + "State: "
+            + " "
             + self.state
         )
 

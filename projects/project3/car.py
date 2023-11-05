@@ -135,6 +135,7 @@ class Car:
         :return: A string representation of the Car object.
         :rtype: str
         """
+        formatted_price = "${:,.2f}".format(self.price)
         return (
             "Brand: "
             + self.brand
@@ -146,7 +147,7 @@ class Car:
             + str(self.year)
             + "\n"
             + "Price: "
-            + str(self.price)
+            + formatted_price
             + "\n"
             + "Car type: "
             + self.car_type
