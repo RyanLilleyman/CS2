@@ -1,8 +1,11 @@
-'''
-This file is the main program for Project 4.
-'''
+"""
+Project No. 4
+Authors: Ryan Lilleyman, Christian Blanchard
+Description: Main Python File
+"""
 from bookshop import BookShop
 from test_bookshop import Tests
+
 
 def main():
     """
@@ -23,17 +26,18 @@ def main():
 
     store = BookShop(orders)
     print()
-    print(store.total_price_per_book_order_number(),end='\n\n')
-    print(store.filter_lowest(),end='\n\n')
-    print(store.filter_maximum(),end='\n\n')
-    print(store.sum_tuple(),end='\n\n')
-    print(store.max_order_and_book(),end='\n\n')
-    print(store.max_books_decending_list(),end='\n\n')
-    print(store.total_quantity_of_all_books(),end='\n\n')
-    print(store.most_ordered(),end='\n\n')
-    print(store.sub_order_length(),end='\n\n')
+    print(store.total_price_per_book_order_number(), end="\n\n")
+    print(store.filter_lowest(), end="\n\n")
+    print(store.filter_maximum(), end="\n\n")
+    print(store.sum_tuple(), end="\n\n")
+    print(store.max_amount(), end="\n\n")
+    print(store.max_order_and_book(), end="\n\n")
+    print(store.max_books_decending_list(), end="\n\n")
+    print(store.total_quantity_of_all_books(), end="\n\n")
+    print(store.most_ordered(), end="\n\n")
+    print(store.sub_order_length(), end="\n\n")
 
-    print("Tests",end='\n\n')
+    print("Tests", end="\n\n")
     tst = Tests(orders)
     print(tst.test_one())
     print(tst.test_two())
@@ -45,9 +49,6 @@ def main():
     print(tst.test_eight())
     print(tst.test_nine())
     print(tst.test_ten())
-    
-
-
 
 
 if __name__ == "__main__":
