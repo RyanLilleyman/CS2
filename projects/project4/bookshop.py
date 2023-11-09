@@ -200,7 +200,8 @@ class BookShop:
             int: The total quantity of all books.
         """
         result = [
-            (order[0], sum([item[1] for item in order[1:]])) for order in self.orders
+            (order[0], reduce(lambda x, y: x + y, [item[1] for item in order[1:]]))
+            for order in self.orders
         ]
         res = [item[1] for item in result]
         return reduce((lambda x, y: x + y), res)
@@ -229,13 +230,13 @@ class BookShop:
                     n[key] += value
                 else:
                     n[key] = value
-        maximum = max(n.values())
+        maximum = reduce(lambda x, y: x if x > y else y, n.values())
         ls = []
         for k in n:
             if n[k] == maximum:
                 ls.append(k)
 
-        minimum = min(n.values())
+        minimum = reduce(lambda x, y: x if x < y else y, n.values())
         for k in n:
             if n[k] == minimum:
                 ls.append(k)
