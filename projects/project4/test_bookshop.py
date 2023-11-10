@@ -139,7 +139,7 @@ class Tests(TestCase):
             None
         """
         result = self.store.max_order_and_book()
-        check = (1, 31)
+        check = [1, 31]
         self.assertEqual(
             result,
             check,

@@ -172,7 +172,7 @@ class BookShop:
         - result: A tuple representing the maximum order and its sum.
         """
         result = [
-            (order[0], sum([item[1] for item in order[1:]])) for order in self.orders
+            [order[0], sum([item[1] for item in order[1:]])] for order in self.orders
         ]
         res = max([item[1] for item in result])
         something = list(filter(lambda x: x[1] == res, result))
