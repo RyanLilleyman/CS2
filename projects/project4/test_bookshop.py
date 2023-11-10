@@ -58,11 +58,10 @@ class Tests(TestCase):
             [3, ("5464", 99.91), ("88112", 274.89)],
             [4, ("8732", 93.93), ("7733", 208.89), ("88112", 199.75)],
         ]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+        self.assertEqual(result, check, format_string)
         print("Test case no.1 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_two(self):
         """
@@ -76,11 +75,11 @@ class Tests(TestCase):
         """
         result = self.store.filter_lowest()
         check = [(1, "5464"), (2, "5464"), (3, "5464"), (4, "8732")]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
+        self.assertEqual(result, check, format_string)
         print("Test case no.2 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_three(self):
         """
@@ -99,11 +98,15 @@ class Tests(TestCase):
         """
         result = self.store.filter_maximum()
         check = [(1, "9744"), (2, "9744"), (3, "88112"), (4, "7733")]
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
         self.assertEqual(
             result,
             check,
+            format_string,
         )
         print("Test case no.3 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_four(self):
         """
@@ -111,11 +114,11 @@ class Tests(TestCase):
         """
         result = self.store.sum_tuple()
         check = [(1, "688.33"), (2, "504.46"), (3, "374.80"), (4, "502.57")]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
+        self.assertEqual(result, check, format_string)
         print("Test case no.4 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_five(self):
         """
@@ -123,11 +126,11 @@ class Tests(TestCase):
         """
         result = self.store.max_amount()
         check = [1, 688.33]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
+        self.assertEqual(result, check, format_string)
         print("Test case no.5 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_six(self):
         """
@@ -140,11 +143,11 @@ class Tests(TestCase):
         """
         result = self.store.max_order_and_book()
         check = [1, 31]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
+        self.assertEqual(result, check, format_string)
         print("Test case no.6 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_seven(self):
         """
@@ -160,11 +163,14 @@ class Tests(TestCase):
         """
         result = self.store.max_books_decending_list()
         check = [(4, 23), (3, 20), (2, 18), (1, 31)]
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
         self.assertEqual(
             result,
             check,
         )
         print("Test case no.7 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_eight(self):
         """
@@ -180,11 +186,15 @@ class Tests(TestCase):
         """
         result = self.store.total_quantity_of_all_books()
         check = 92
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
         self.assertEqual(
             result,
             check,
+            format_string,
         )
         print("Test case no.8 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_nine(self):
         """
@@ -202,11 +212,11 @@ class Tests(TestCase):
         """
         result = self.store.most_ordered()
         check = ["5464", "8732"]
-        self.assertEqual(
-            result,
-            check,
-        )
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
+        self.assertEqual(result, check, format_string)
         print("Test case no.9 passed!", end="\n\n")
+        print(format_string, end="\n")
 
     def test_ten(self):
         """
@@ -222,8 +232,13 @@ class Tests(TestCase):
         """
         result = self.store.sub_order_length()
         check = [3, 2, 2, 3]
+        format_string = f"Expected:\n\n {check}, got\n\n {result}"
+
         self.assertEqual(
             result,
             check,
+            format_string,
         )
+
         print("Test case no.10 passed!", end="\n\n")
+        print(format_string, end="\n")
