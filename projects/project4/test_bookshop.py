@@ -60,6 +60,7 @@ class Tests(TestCase):
         ]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.1 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -78,6 +79,7 @@ class Tests(TestCase):
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.2 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -105,6 +107,7 @@ class Tests(TestCase):
             check,
             format_string,
         )
+        print()
         print("Test case no.3 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -117,6 +120,7 @@ class Tests(TestCase):
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.4 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -129,6 +133,7 @@ class Tests(TestCase):
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.5 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -146,6 +151,7 @@ class Tests(TestCase):
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.6 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -169,6 +175,7 @@ class Tests(TestCase):
             result,
             check,
         )
+        print()
         print("Test case no.7 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -193,6 +200,7 @@ class Tests(TestCase):
             check,
             format_string,
         )
+        print()
         print("Test case no.8 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -215,6 +223,7 @@ class Tests(TestCase):
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
+        print()
         print("Test case no.9 passed!", end="\n\n")
         print(format_string, end="\n")
 
@@ -239,6 +248,6 @@ class Tests(TestCase):
             check,
             format_string,
         )
-
+        print()
         print("Test case no.10 passed!", end="\n\n")
         print(format_string, end="\n")
