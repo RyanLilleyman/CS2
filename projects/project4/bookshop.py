@@ -17,30 +17,32 @@ class BookShop:
 
     def __init__(self, orders=()):
         """
-        Initializes an instance of the class.
+        Initializes a new instance of the class.
 
-        Parameters:
-            orders (list, optional): A list of orders. Defaults to an empty list.
+        Args:
+            orders (tuple, optional): A tuple of orders. Defaults to an empty tuple.
+
+        Returns:
+            None
         """
         self.orders = list(orders)
         self.mod = []
-        self.mo = []
 
     def get_orders(self):
         """
         Get the orders.
 
         Returns:
-            The orders.
+            list: A list of orders.
         """
         return self.orders
 
     def set_orders(self, orders):
         """
-        Set the orders for the object.
+        Set the orders for the current object.
 
         Parameters:
-            orders (list): A list of orders to be set.
+            orders (list): A list of orders.
 
         Returns:
             None
@@ -51,20 +53,23 @@ class BookShop:
         """
         Add an order to the list of orders.
 
-        Args:
-            order: The order to be added.
+        Parameters:
+            order (object): The order to be added.
 
         Returns:
-            None.
+            None
         """
         self.orders.append(order)
 
-    def total_price_per_book_order_number(self):
+    def step_one(self):
         """
-        Calculates the total price per book order number.
+        This function performs step one of the process. It iterates over the list of orders and modifies each order based on certain conditions. The modified orders are then appended to the `to_return` list. After the loop ends, the `to_return` list is assigned to the `mod` attribute of the class.
+
+        Parameters:
+            self: The instance of the class.
 
         Returns:
-            list: A list of modified order numbers and their corresponding total prices.
+            list: The modified list of orders.
         """
         to_return = []
         for order in self.orders:
@@ -87,18 +92,22 @@ class BookShop:
         self.mod = to_return
         return to_return
 
-    def filter_lowest(self):
+    def step_two(self):
         """
-        Generates a new list of tuples containing the lowest value from each order in the `mod` list of the class.
+        Generates a list of tuples based on the `self.mod` attribute.
 
-        Returns:
-            list: A list of tuples containing the lowest value from each order. Each tuple consists of the order's id and the item with the lowest value.
+        :param self: The instance of the class.
+        :return: A list of tuples containing the minimum value from each order in `self.mod`.
+
+        The function iterates over each order in `self.mod` and finds the minimum value from each order using the `reduce` function.
+        It then creates a new tuple with the order ID and the corresponding value with the minimum value.
+        Finally, it appends the new tuple to the `fl` list and returns it.
         """
         fl = []
         for order in self.mod:
-            tup = [item[1] for item in order[1:]]
-            minimum = list(filter(lambda x: x == min(tup), tup))
-            minimum = minimum[0]
+            minimum = reduce(
+                lambda x, y: x if x < y else y, [item[1] for item in order[1:]]
+            )
             bo = ""
             for tup in order[1:]:
                 if tup[1] == minimum:
@@ -107,12 +116,15 @@ class BookShop:
             fl.append(mo)
         return fl
 
-    def filter_maximum(self):
+    def step_three(self):
         """
-        Filters the maximum values from each order in the `self.mod` list and returns a list of tuples containing the order number and the item with the maximum value.
+        Generates a list of tuples based on the given `mod` list. Each tuple in the
+        resulting list contains the first element of the corresponding order in the
+        `mod` list and the element with the maximum value in the rest of the order.
 
         Returns:
-            list: A list of tuples, each containing the order number and the item with the maximum value.
+            list: A list of tuples, where each tuple contains the first element of
+            the order and the element with the maximum value in the rest of the order.
         """
         fl = []
         for order in self.mod:
@@ -130,74 +142,110 @@ class BookShop:
             fl.append(mo)
         return fl
 
-    def sum_tuple(self):
+    def step_four(self):
         """
-        Calculate the sum of all tuples in the `mod` list.
+        This function iterates over a list of orders and performs some calculations on each order. It returns a new list with modified order data.
+
+        Parameters:
+            None
 
         Returns:
-            list: A list of tuples containing the order ID and the total sum of each tuple as a formatted string.
+            list: A list of tuples where each tuple contains the order name and the total value calculated from the order data.
         """
+        to_return = []
+        for order in self.orders:
+            mod = []
+
+            on = order[0]
+            mod.append(on)
+
+            bol = order[1:]
+            for book in bol:
+                mbo = (book[0], (book[1] * book[2]))
+                mod.append(mbo)
+
+            to_return.append(mod)
+
         fl = []
-        for order in self.mod:
+        for order in to_return:
             tup = [item[1] for item in order[1:]]
             total = reduce(lambda x, y: x + y, tup)
-            fl.append((order[0], "{:,.2f}".format(total)))
+            fl.append((order[0], float("{:,.2f}".format(total))))
         return fl
 
-    def max_amount(self):
+    def step_five(self):
         """
-        Find the maximum amount in the sum_tuple list.
+        Calculates the sum of the products of the second and third elements of each tuple in the orders list, grouped by the first element of each tuple.
 
-        Parameters:
-        - None
+        Returns a list containing the maximum value from the calculated sums and the maximum value from the sums' values.
 
-        Returns:
-        - A list containing the item with the maximum amount from the sum_tuple list. The list contains two elements: the item's name and the item's amount, represented as a float.
+        :param self: The current instance of the class.
+        :return: A list containing the maximum value from the calculated sums and the maximum value from the sums' values.
         """
-        to_max = max([item[1] for item in self.sum_tuple()])
-        for tup in self.sum_tuple():
-            if tup[1] == to_max:
-                return [tup[0], float(tup[1])]
+        di = {}
 
-    def max_order_and_book(self):
-        """
-        Calculate the maximum order and book.
+        for item in [
+            tup for sublist in [order[1:] for order in self.orders] for tup in sublist
+        ]:
+            if item[0] in di.keys():
+                di[item[0]] += item[1] * item[2]
+            else:
+                di[item[0]] = item[1] * item[2]
 
-        This function iterates over the list of orders and calculates the total sum of the order items. It then finds the maximum sum and filters the orders with the maximum sum. Finally, it returns the first order with the maximum sum.
-
-        Parameters:
-        - self: The instance of the current class.
-
-        Returns:
-        - result: A tuple representing the maximum order and its sum.
-        """
-        result = [
-            [order[0], sum([item[1] for item in order[1:]])] for order in self.orders
+        return [
+            str(reduce(lambda x, y: x if x > y else y, di)),
+            reduce(lambda x, y: x if x > y else y, di.values()),
         ]
-        res = max([item[1] for item in result])
-        something = list(filter(lambda x: x[1] == res, result))
-        result = something[0]
-        return result
 
-    def max_books_decending_list(self):
+    def step_six(self):
         """
-        Generates a list of tuples containing the total number of books and the sum of their quantities for each order in descending order.
+        Calculates the step six of the process.
 
         Returns:
-            list: A list of tuples in descending order. Each tuple contains the order ID and the total quantity of books.
+            list: A list containing the highest value(s) in the dictionary.
+        """
+        di = {}
+        for item in [
+            tup for sublist in [order[1:] for order in self.orders] for tup in sublist
+        ]:
+            if item[0] in di.keys():
+                di[item[0]] += item[1]
+            else:
+                di[item[0]] = item[1]
+
+        x = list(
+            filter(
+                lambda x: di.get(x)
+                == reduce(lambda x, y: x if x > y else y, di.values()),
+                di,
+            )
+        )
+        x.append(reduce(lambda x, y: x if x > y else y, di.values()))
+
+        return x
+
+    def step_seven(self):
+        """
+        Calculates the sum of values for each order in self.orders.
+
+        Parameters:
+            None
+
+        Returns:
+            A list of tuples containing the order ID and the sum of values for each order.
         """
         result = [
             (order[0], sum([item[1] for item in order[1:]])) for order in self.orders
         ]
-        result = sorted(result, reverse=True)
+        result = sorted(result, reverse=True, key=lambda x: x[1])
         return result
 
-    def total_quantity_of_all_books(self):
+    def step_eight(self):
         """
-        Calculates the total quantity of all books in the orders.
+        Calculates the total sum of all the items in the orders list.
 
         Returns:
-            int: The total quantity of all books.
+            int: The total sum of all the items in the orders list.
         """
         result = [
             (order[0], reduce(lambda x, y: x + y, [item[1] for item in order[1:]]))
@@ -206,18 +254,12 @@ class BookShop:
         res = [item[1] for item in result]
         return reduce((lambda x, y: x + y), res)
 
-    def most_ordered(self):
+    def step_nine(self):
         """
-        Returns a list of items that are most ordered and least ordered.
-
-        This function iterates over the list of orders and extracts the items from each order.
-        For each item, it keeps track of the total quantity by updating the quantity in a dictionary.
-        After iterating over all the orders, it finds the maximum and minimum quantities.
-        It then adds the items with the maximum quantity to a list and the items with the minimum quantity to the same list.
-        Finally, it returns the list of items.
+        Generates the result list by performing several operations on the self.orders list.
 
         Returns:
-            list: A list of items that are most ordered and least ordered.
+            list: The final list containing the desired elements.
         """
         result = [item for item in [order[1:] for order in self.orders]]
         n = defaultdict(str)
@@ -243,25 +285,14 @@ class BookShop:
 
         return ls
 
-    def sub_order_length(self):
+    def step_ten(self):
         """
-        Calculates the length of each sublist in the `orders` attribute.
-
-        Parameters:
-            self (ClassName): An instance of the ClassName class.
+        Calculate the length of each item in the orders list and return a list of the lengths.
 
         Returns:
-            list: A list containing the lengths of each sublist in `orders`.
+            list: A list of integers representing the length of each item in the orders list.
         """
-        sublist = [item for item in [order[1:] for order in self.orders]]
-        lengths = [len(item) for item in sublist]
-        return lengths
+        return [len(item) for item in self.orders]
 
     def __str__(self):
-        """
-        Returns a string representation of the 'orders' attribute.
-
-        :return: A string representation of the 'orders' attribute.
-        :rtype: str
-        """
         return str(self.orders)

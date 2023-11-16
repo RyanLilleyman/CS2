@@ -28,30 +28,19 @@ class Tests(TestCase):
 
     def test_one(self):
         """
-        Test the functionality of the `total_price_per_book_order_number` method.
-
-        This method retrieves the total price of each book for each order number.
+        Executes test case no.1 by calling the `step_one` method of the `store` object.
+        The expected result is a list of lists, where each inner list contains an integer
+        followed by a tuple of strings and floats. The function compares the result with
+        a predefined check list and asserts that they are equal. If the assertion passes,
+        a success message is printed to the console.
 
         Parameters:
-        - None
+        - self: The instance of the test class.
 
         Returns:
-        - result (list): A list of lists containing the order number and the total price of each book for that order number.
-          Each inner list contains:
-          - order_number (int): The order number.
-          - book_price (tuple): A tuple containing the book ID and its total price.
-            - book_id (str): The ID of the book.
-            - total_price (float): The total price of the book.
-
-        Example:
-        [
-            [1, ("5464", 49.96), ("8274", 233.82), ("9744", 404.55)],
-            [2, ("5464", 99.91), ("9744", 404.55)],
-            [3, ("5464", 99.91), ("88112", 274.89)],
-            [4, ("8732", 93.93), ("7733", 208.89), ("88112", 199.75)],
-        ]
+        - None
         """
-        result = self.store.total_price_per_book_order_number()
+        result = self.store.step_one()
         check = [
             [1, ("5464", 49.96), ("8274", 233.82), ("9744", 404.55)],
             [2, ("5464", 99.91), ("9744", 404.55)],
@@ -62,43 +51,44 @@ class Tests(TestCase):
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.1 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_two(self):
         """
-        This function is used to test the 'filter_lowest' method of the 'store' object. It calls the 'filter_lowest' method and compares the returned value with the expected value. The expected value is a list of tuples containing integers and strings. This function asserts that the returned value is equal to the expected value. Finally, it prints a success message if the test case passes.
+        Executes the second test case by calling the `step_two` method of the `store` object and comparing the result with the expected `check` value.
 
         Parameters:
-            self (object): The current instance of the class.
+            self (TestClass): The instance of the TestClass.
 
         Returns:
             None
         """
-        result = self.store.filter_lowest()
+        result = self.store.step_two()
         check = [(1, "5464"), (2, "5464"), (3, "5464"), (4, "8732")]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.2 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_three(self):
         """
-        Test the 'filter_maximum' method of the 'store' object.
+        Executes the third test case for the `test_three` method.
 
-        This method calls the 'filter_maximum' method of the 'store' object and stores the result in the 'result' variable.
-        Then it checks if the 'result' variable is equal to the 'check' variable.
-        The 'check' variable is a list of tuples, where each tuple represents an expected value for the corresponding index of the 'result' variable.
-        If the assertion passes, it prints a success message.
+        This method calls the `step_three` method of the `store` object and assigns the result to the `result` variable.
+
+        It checks if the `result` matches the expected value stored in the `check` list.
+
+        If the `result` does not match the expected value, an assertion error is raised with a formatted error message.
+
+        After the test case is executed, a success message is printed.
 
         Parameters:
-            self (object): The current instance of the test class.
+            self (TestClass): The object instance.
 
         Returns:
             None
         """
-        result = self.store.filter_maximum()
+        result = self.store.step_three()
         check = [(1, "9744"), (2, "9744"), (3, "88112"), (4, "7733")]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
@@ -109,89 +99,81 @@ class Tests(TestCase):
         )
         print()
         print("Test case no.3 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_four(self):
         """
-        Test the `sum_tuple` method of the `store` object and assert if the result matches the expected value.
+        Executes step four of the test process.
+
+        :return: None
         """
-        result = self.store.sum_tuple()
-        check = [(1, "688.33"), (2, "504.46"), (3, "374.80"), (4, "502.57")]
+        result = self.store.step_four()
+        check = [(1, 678.33), (2, 494.46), (3, 364.8), (4, 492.57)]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.4 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_five(self):
         """
-        Test the functionality of the `max_amount` method in the `store` object.
+        Executes test case five.
+
+        This function calls the `step_five` method of the `store` object and assigns the returned value to the `result` variable.
+        It then compares the value of `result` with the expected value stored in the `check` list.
+        If the values are not equal, it raises an `AssertionError` with a formatted string that displays the expected and actual values.
+        Finally, it prints a success message if the test case passes.
+
+        Parameters:
+        - self: The current instance of the class.
+
+        Returns:
+        - None
         """
-        result = self.store.max_amount()
-        check = [1, 688.33]
+        result = self.store.step_five()
+        check = ["9744", 809.1]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.5 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_six(self):
         """
-        Test case for the test_six method.
+        Executes test case no. 6 for the function `step_six` of the `store` object.
 
-        This test case checks if the max_order_and_book method of the store object returns the correct result. It verifies that the result is equal to the tuple (1, 31).
+        Parameters:
+            None
 
         Returns:
             None
         """
-        result = self.store.max_order_and_book()
-        check = [1, 31]
+        result = self.store.step_six()
+        check = ["5464", 22]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.6 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_seven(self):
         """
-        Test the `max_books_decending_list` method of the `store` object.
+        Test the step_seven method of the store.
 
-        This test case verifies that the `max_books_decending_list` method of the `store` object returns the expected result.
-
-        Parameters:
-        self -- the current instance of the test case
-
-        Returns:
-        None
+        :return: None
         """
-        result = self.store.max_books_decending_list()
-        check = [(4, 23), (3, 20), (2, 18), (1, 31)]
+        result = self.store.step_seven()
+        check = [(1, 31), (4, 23), (3, 20), (2, 18)]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
-        self.assertEqual(
-            result,
-            check,
-        )
+        self.assertEqual(result, check, format_string)
         print()
         print("Test case no.7 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_eight(self):
         """
-        Test case to check the functionality of the `total_quantity_of_all_books` method.
-
-        This test case verifies that the `total_quantity_of_all_books` method returns the correct total quantity of all books in the store.
-
-        Parameters:
-            self (object): The instance of the test class.
-
-        Returns:
-            None
+        This function is a test case for step eight of the process. It calls the `step_eight` method of the `store` object and assigns the result to the `result` variable. It then checks if the `result` is equal to the expected value `92`. If the result and expected value are not equal, it formats a string to display the expected and actual values. Finally, it asserts that the `result` is equal to the expected value and prints a success message if the test case passes.
         """
-        result = self.store.total_quantity_of_all_books()
+        result = self.store.step_eight()
         check = 92
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
@@ -202,45 +184,38 @@ class Tests(TestCase):
         )
         print()
         print("Test case no.8 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_nine(self):
         """
-        Test case for the `test_nine` method.
-
-        This test case verifies that the `most_ordered` method of the `store` object returns the correct result.
-
-        It performs the following steps:
-        - Calls the `most_ordered` method of the `store` object.
-        - Compares the result with the expected value.
-        - Prints a success message if the test case passes.
-
-        Returns:
-        None
+        Executes test case number nine.
         """
-        result = self.store.most_ordered()
+        result = self.store.step_nine()
         check = ["5464", "8732"]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(result, check, format_string)
         print()
         print("Test case no.9 passed!", end="\n\n")
-        print(format_string, end="\n")
 
     def test_ten(self):
         """
-        Executes test case number 10 for the `test_ten` method.
+        Test method to verify the behavior of the 'test_ten' function.
 
-        This method tests the functionality of the `test_ten` method by calling the `self.store.sub_order_length()` method and comparing the result to the expected value.
+        This method performs the following steps:
+        1. Calls the 'step_ten' method of the 'store' object.
+        2. Assigns the returned value to the 'result' variable.
+        3. Initializes the 'check' list with the expected values.
+        4. Constructs a format string to display the expected and actual results.
+        5. Asserts that the 'result' is equal to the 'check' list, using the constructed format string as the error message.
+        6. Prints a blank line.
+        7. Prints a success message indicating that test case no.10 has passed.
 
-        Parameters:
-            None
+        This method does not have any parameters.
 
-        Returns:
-            None
+        This method does not return any values.
         """
-        result = self.store.sub_order_length()
-        check = [3, 2, 2, 3]
+        result = self.store.step_ten()
+        check = [4, 3, 3, 4]
         format_string = f"Expected:\n\n {check}, got\n\n {result}"
 
         self.assertEqual(
@@ -250,4 +225,3 @@ class Tests(TestCase):
         )
         print()
         print("Test case no.10 passed!", end="\n\n")
-        print(format_string, end="\n")

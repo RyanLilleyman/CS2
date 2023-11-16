@@ -43,3 +43,5 @@ print("Given array is:", arr)
 merge_sort(arr)
 
 print("Sorted array is:", arr)
+
+print(3 // 2)
