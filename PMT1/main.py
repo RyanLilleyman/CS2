@@ -39,15 +39,11 @@ def main():
     tickets = trips.get_tickets()
 
     for ticket in tickets:
-
         print(
             f"{ticket.get_name():<18}{ticket.get_dob():<12}{ticket.get_flight_number():<8}"
             f"{ticket.get_miles():<8}{ticket.get_type():<13}{ticket.get_discount_rate():^15,.2f}"
             f"{ticket.get_ticket_cost():>10,.2f}"
-            
         )
-        
-        
 
     print()
     print(f'{"Total cost of tickets:   $"}{trips.get_total_travel_cost():>12,.2f}')
