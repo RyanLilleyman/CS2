@@ -1,3 +1,9 @@
+"""
+Project: PMT
+Author: Ryan Lilleyman
+Date: 11/20/2023
+Description: This file contains the implementation of the main function.
+"""
 from trips import Trips
 from business import Business
 from first_class import First
@@ -5,6 +11,15 @@ from economy import Economy
 
 
 def main():
+    """
+    This function is the entry point of the program. It initializes the 'trips' object of the 'Trips' class.
+    It creates instances of the 'Economy', 'Business', and 'First' classes to represent different types of tickets.
+    It adds the created tickets to the 'trips' object using the 'add_ticket' method.
+    Then, it prints the header for the passenger tickets table.
+    It retrieves the list of tickets from the 'trips' object using the 'get_tickets' method.
+    It iterates over each ticket and prints the details in a formatted manner.
+    Finally, it prints the total cost of the tickets using the 'get_total_travel_cost' method of the 'trips' object.
+    """
     trips = Trips()
     tick1 = Economy("Sonya Blade", "10/10/1977", "O4321", 140)
     tick2 = Business("Sub Zero", "1/1/1110", "O4322", 2240)
