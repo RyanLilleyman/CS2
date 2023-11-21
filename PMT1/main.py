@@ -41,7 +41,6 @@ def main():
     trips.add_ticket(tick8)
     trips.add_ticket(tick9)
 
-    print()
     print("Passengers Tickets")
     print("==================\n")
     print(
@@ -62,7 +61,6 @@ def main():
 
     print()
     print(f'{"Total cost of tickets:   $"}{trips.get_total_travel_cost():>12,.2f}')
-    print()
 
 
 if __name__ == "__main__":
